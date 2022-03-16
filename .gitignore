@@ -1,0 +1,9 @@
+#build files
+target/**
+
+#ide specific
+.idea/**
+*.iml
+
+#test report temporary files
+src/main/resources/reports/**
