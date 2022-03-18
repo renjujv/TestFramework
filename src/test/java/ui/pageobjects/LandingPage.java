@@ -1,6 +1,7 @@
-package pageobjects;
+package ui.pageobjects;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -16,6 +17,6 @@ public class LandingPage {
 
     public ContactUsPage gotoContactPage() {
         $(CONTACT_US_LINK).click();
-        return page(ContactUsPage.class);
+        return Selenide.page(ContactUsPage.class);
     }
 }

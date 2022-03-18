@@ -1,9 +1,13 @@
 #build files
-target/**
+target
+lib
+logs
 
 #ide specific
-.idea/**
+.idea
 *.iml
 
-#test report temporary files
-src/main/resources/reports/**
+#allure temp directories
+reports
+allure-results
+build

@@ -1,17 +1,13 @@
-package tests;
+package ui.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.junit.ScreenShooter;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.Before;
-import org.junit.Rule;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.impl.SimpleLoggerFactory;
-import pageobjects.ContactUsPage;
-import pageobjects.LandingPage;
+import ui.pageobjects.ContactUsPage;
+import ui.pageobjects.LandingPage;
 
 import java.io.File;
 
@@ -19,23 +15,28 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProductSearchTests {
-    Logger logger = new SimpleLoggerFactory().getLogger("ProductSearchTests");
+//    Logger logger = new SimpleLoggerFactory().getLogger("ProductSearchTests");
     //TODO Make path relative
-    String sampleUploadFilePath = "/Users/renju/Devworx/intellij-workspace/TestFramework/src/main/resources/assets/testimg.png";
+    String sampleUploadFilePath = "/Users/renju/Devworx/intellij-workspace/TestFramework/assets/testimg.png";
     //TODO move screenshots to date folder
-    @Rule
-    public ScreenShooter makeScreenshotAlways = ScreenShooter.failedTests().succeededTests();
-
+//    @Rule
+//    public ScreenShooter makeScreenshotonFailedTests = ScreenShooter.failedTests();
 
     //TODO Move to baseclass
-    @Before
-    public void setup(){
-        logger.debug("Test Setup started");
-//        Configuration.browser = "firefox";
-        Configuration.reportsFolder = "/Users/renju/Devworx/intellij-workspace/TestFramework/src/main/resources/reports";
-        Configuration.baseUrl = "https://automationpractice.multiformis.com";
+    @BeforeClass
+    public static void preTestSetup(){
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        logger.debug("Test Setup over");
+        Configuration.reportsFolder = "/Users/renju/Devworx/intellij-workspace/TestFramework/reports";
+        Configuration.baseUrl = "https://automationpractice.multiformis.com";
+    }
+
+
+
+//    @Before
+    public void setup(){
+//        logger.debug("Test Setup started");
+//        Configuration.browser = "firefox";
+//        logger.debug("Test Setup over");
     }
 
     @Test
@@ -48,7 +49,7 @@ public class ProductSearchTests {
     @Test
     public void contactSeller(){
         File file = new File(sampleUploadFilePath);
-        ContactUsPage contactUsPage = open("index.php?controller=contact", ContactUsPage.class);
+        ContactUsPage contactUsPage = open("/index.php?controller=contact", ContactUsPage.class);
         contactUsPage.selectSubjectHeading("2")
                 .enterEmail("test@test.com")
                 .enterOrderReference("C123")
