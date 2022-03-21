@@ -119,9 +119,19 @@
                 <configuration>
                     <reportVersion>${allure-maven.report-version}</reportVersion>
                     <installDirectory>${project.basedir}/lib</installDirectory>
-                    <resultsDirectory>${build.directory}/allure-results</resultsDirectory>
-                    <reportDirectory>${build.directory}/allure-report</reportDirectory>
+                    <resultsDirectory>${project.basedir}/reports/allure-results</resultsDirectory>
+                    <reportDirectory>${project.basedir}/reports/allure-report</reportDirectory>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>allure-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                            <goal>serve</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

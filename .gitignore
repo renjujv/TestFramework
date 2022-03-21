@@ -3,11 +3,12 @@ target
 lib
 logs
 
+#selenide webdrivermanager driver temp files
+build
+
 #ide specific
 .idea
 *.iml
 
 #allure temp directories
 reports
-allure-results
-build

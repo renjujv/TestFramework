@@ -1,4 +1,4 @@
-package rest.tests;
+package api.tests;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.PrintStream;
 
 public class BaseRestTest {
-    public static ConfigHandler config = new ConfigHandler();
+    public static ConfigHandler configHandler = new ConfigHandler();
     public static RequestSpecification requestSpec;
     public static ResponseSpecification responseSpec;
 
@@ -24,7 +24,7 @@ public class BaseRestTest {
         PrintStream logFile = null;
         System.out.println("Basic setup done for rest test steps...");
         try {
-            logFile = new PrintStream(new FileOutputStream(config.getProperty("log_file_path")));
+            logFile = new PrintStream(new FileOutputStream(configHandler.getProperty("log_file_path")));
         } catch (FileNotFoundException fileNotFoundException){
             fileNotFoundException.printStackTrace();
         }
