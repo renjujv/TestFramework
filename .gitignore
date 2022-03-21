@@ -12,3 +12,4 @@ build
 
 #allure temp directories
 reports
+perf-test/wp-perf-test-report

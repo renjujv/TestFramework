@@ -55,13 +55,11 @@ public class GoRESTAPITests extends BaseRestTest {
     @Description("Update an existing User - check both the Status Code: OK and Response Body contains new User's name")
     @Severity(SeverityLevel.CRITICAL)
     public void updateUser() {
-        User updatedUser = new User("Allasani Peddana","Female","allasani.peddana@15ce.com","active");
-
         given().spec(requestSpec).auth().oauth2(configHandler.getProperty("auth_token"))
             .header("Accept", "application/json")
             .header("Content-Type", "application/json")
         .when()
-            .body(getUserAsJSON(updatedUser))
+            .body(getUserAsJSON(getRandomUser()))
             .patch(configHandler.getProperty("rest_base_uri") + "/users/2432")
         .then().spec(responseSpec)
             .statusCode(HttpStatus.SC_OK)

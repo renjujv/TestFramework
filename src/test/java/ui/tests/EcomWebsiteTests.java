@@ -3,7 +3,6 @@ package ui.tests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import ui.pageobjects.ContactUsPage;
 import ui.pageobjects.LandingPage;
