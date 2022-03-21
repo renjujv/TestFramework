@@ -1,12 +1,8 @@
 package ui.pageobjects;
 
-import com.codeborne.selenide.SelenideElement;
-import com.github.javafaker.Faker;
-
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ContactUsPage {
