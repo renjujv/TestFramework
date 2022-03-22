@@ -1,6 +1,5 @@
 package api.tests;
 
-import entities.User;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
