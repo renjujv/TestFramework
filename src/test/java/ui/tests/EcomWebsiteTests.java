@@ -1,5 +1,6 @@
 package ui.tests;
 
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -12,6 +13,7 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.*;
 
 public class EcomWebsiteTests extends BaseUITest{
+    private final String PRODUCT_TITLE = "div.product-container > div.right-block > h5 > a";
 
     @Test
     @Description("Search product `t-shirt` and verify that the result count is `1`")
@@ -21,6 +23,16 @@ public class EcomWebsiteTests extends BaseUITest{
         landingPage
                 .performSearchAndGiveResults("t-shirt")
                 .shouldHave(size(1));
+    }
+
+    @Test
+    @Description("Search product `t-shirt` and verify that the result contains the searched text")
+    @Severity(SeverityLevel.BLOCKER)
+    public void searchProductAndVerifyResultText(){
+        LandingPage landingPage = open("/index.php", LandingPage.class);
+        landingPage
+                .performSearchAndGiveResults("t-shirt")
+                .first().find(PRODUCT_TITLE).shouldHave(Condition.text("t-shirt"));
     }
 
     @Test
