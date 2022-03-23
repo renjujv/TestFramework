@@ -7,8 +7,7 @@ import java.util.Properties;
 
 public class ConfigHandler {
     private final Properties properties = new Properties();
-    private final String configFilePath = ClassLoader.getSystemResource("config.properties").getFile();
-    //  "src/main/resources/config.properties"
+    private final String configFilePath = "src/test/resources/config.properties";
 
     public String getProperty(String propertyKey){
         try (FileInputStream fileInStream = new FileInputStream(configFilePath)){
