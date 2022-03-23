@@ -128,7 +128,7 @@
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>
-                            <goal>serve</goal>
+<!--                            <goal>serve</goal>-->
                         </goals>
                     </execution>
                 </executions>
