@@ -1,4 +1,4 @@
-package ui.tests;
+package demo.ui.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.ScreenShooter;
@@ -7,7 +7,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import io.qameta.allure.selenide.LogType;
 import org.junit.BeforeClass;
 import org.junit.Rule;
-import util.ConfigHandler;
+import demo.util.ConfigHandler;
 
 import java.util.logging.Level;
 

@@ -1,4 +1,4 @@
-package api.tests;
+package demo.api.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
@@ -9,7 +9,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import static util.EntityHandlers.*;
+import static demo.util.EntityHandlers.*;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.CoreMatchers.containsString;

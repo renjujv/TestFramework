@@ -1,4 +1,4 @@
-package api.tests;
+package demo.api.tests;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -6,7 +6,7 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.BeforeClass;
-import util.ConfigHandler;
+import demo.util.ConfigHandler;
 
 public class BaseRestTest {
     public static ConfigHandler configHandler = new ConfigHandler();

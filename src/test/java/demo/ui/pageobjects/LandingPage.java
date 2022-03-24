@@ -1,6 +1,7 @@
-package ui.pageobjects;
+package demo.ui.pageobjects;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -24,6 +25,6 @@ public class LandingPage {
         $(SEARCH_RESULTS)
                 .scrollIntoView(false).hover()
                 .find(PRODUCT_TITLE).click();
-        return page(ProductPage.class);
+        return Selenide.page(ProductPage.class);
     }
 }

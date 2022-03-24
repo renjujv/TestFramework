@@ -1,4 +1,4 @@
-package entities;
+package demo.entities;
 
 public enum Gender {
     Male,

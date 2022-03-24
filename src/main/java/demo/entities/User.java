@@ -1,4 +1,4 @@
-package entities;
+package demo.entities;
 
 /**
  * We could use lombok for the getters and setters. Keeping it as a plain POJO for now.

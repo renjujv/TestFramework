@@ -1,11 +1,11 @@
-package util;
+package demo.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import entities.Gender;
-import entities.User;
-import entities.UserStatus;
+import demo.entities.Gender;
+import demo.entities.User;
+import demo.entities.UserStatus;
 
 import java.util.Objects;
 

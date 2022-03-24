@@ -1,4 +1,4 @@
-package ui.pageobjects;
+package demo.ui.pageobjects;
 
 import java.io.File;
 

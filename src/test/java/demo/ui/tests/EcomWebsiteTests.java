@@ -1,13 +1,13 @@
-package ui.tests;
+package demo.ui.tests;
 
 import com.codeborne.selenide.Condition;
+import demo.ui.pageobjects.ContactUsPage;
+import demo.ui.pageobjects.LandingPage;
+import demo.ui.pageobjects.ProductPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.Test;
-import ui.pageobjects.ContactUsPage;
-import ui.pageobjects.LandingPage;
-import ui.pageobjects.ProductPage;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.*;

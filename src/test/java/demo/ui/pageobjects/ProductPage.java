@@ -1,4 +1,4 @@
-package ui.pageobjects;
+package demo.ui.pageobjects;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
