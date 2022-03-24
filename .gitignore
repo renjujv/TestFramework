@@ -1,0 +1,15 @@
+#build files
+target
+lib
+logs
+
+#selenide webdrivermanager driver temp files
+build
+
+#ide specific
+.idea
+*.iml
+
+#allure temp directories
+reports
+perf-test/wp-perf-test-report
