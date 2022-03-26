@@ -1,6 +1,5 @@
 #build files
 target
-lib
 logs
 
 #selenide webdrivermanager driver temp files
@@ -11,5 +10,6 @@ build
 *.iml
 
 #allure temp directories
-reports
-perf-test/wp-perf-test-report
+lib/*
+reports/*
+allure-results/*
