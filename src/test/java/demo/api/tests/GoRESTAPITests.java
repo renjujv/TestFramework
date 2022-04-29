@@ -17,10 +17,12 @@ import static org.hamcrest.CoreMatchers.containsString;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GoRESTAPITests extends BaseRestTest {
 
+
+    //TODO Need to implement test ordering in JUnit4 or use JUnit5
     @Test
     @Description("Get all available Users - check both the Status Code OK and Response Body contains User's names")
     @Severity(SeverityLevel.NORMAL)
-    public void getAllUsers() {
+    public void AgetAllUsers() {
         given().spec(requestSpec).auth().none()
             .header("Accept", "application/json")
             .header("Content-Type", "application/json")
@@ -35,7 +37,7 @@ public class GoRESTAPITests extends BaseRestTest {
     @Test
     @Description("Create a new User - check both the Status Code: CREATED and Response Body contains new User's name")
     @Severity(SeverityLevel.BLOCKER)
-    public void createUser() {
+    public void BcreateUser() {
         Response response = given().spec(requestSpec).auth().oauth2(configHandler.getProperty("auth_token"))
             .header("Accept", "application/json")
             .header("Content-Type", "application/json")
@@ -47,19 +49,21 @@ public class GoRESTAPITests extends BaseRestTest {
             .body(containsString("name"))
         .extract().response();
 
-        configHandler.setProperty("last_created_user_id",response.body().jsonPath().get("id").toString());
+        String lastCreatedUserId = response.body().jsonPath().get("id").toString();
+        configHandler.setRuntimeProperty("last_created_user_id", lastCreatedUserId);
     }
+
 
     @Test
     @Description("Update an existing User - check both the Status Code: OK and Response Body contains new User's name")
     @Severity(SeverityLevel.CRITICAL)
-    public void updateUser() {
+    public void CupdateUser() {
         given().spec(requestSpec).auth().oauth2(configHandler.getProperty("auth_token"))
             .header("Accept", "application/json")
             .header("Content-Type", "application/json")
         .when()
             .body(getUserAsJSON(getRandomUser()))
-            .patch(configHandler.getProperty("rest_base_uri") + "/users/2432")
+            .patch(configHandler.getProperty("rest_base_uri") + "/users/"+ configHandler.getRuntimeProperty("last_created_user_id"))
         .then().spec(responseSpec)
             .statusCode(HttpStatus.SC_OK)
             .body(containsString("name"));
@@ -69,12 +73,12 @@ public class GoRESTAPITests extends BaseRestTest {
     @Test
     @Description("Delete an existing User - check the Status Code: NO_CONTENT")
     @Severity(SeverityLevel.NORMAL)
-    public void deleteUser() {
+    public void DdeleteUser() {
         given().spec(requestSpec).auth().oauth2(configHandler.getProperty("auth_token"))
             .header("Accept", "application/json")
             .header("Content-Type", "application/json")
         .when()
-            .delete(configHandler.getProperty("rest_base_uri") + "/users/"+ configHandler.getProperty("last_created_user_id"))
+            .delete(configHandler.getProperty("rest_base_uri") + "/users/"+ configHandler.getRuntimeProperty("last_created_user_id"))
         .then().spec(responseSpec)
             .statusCode(HttpStatus.SC_NO_CONTENT);
     }

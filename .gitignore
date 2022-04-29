@@ -13,3 +13,6 @@ build
 lib/*
 reports/*
 allure-results/*
+
+#runtime property file
+src/test/resources/demo/last_created_user_id
