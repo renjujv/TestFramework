@@ -2,14 +2,15 @@ package demo.ui.pageobjects;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class LandingPage {
+    SelenideElement searchQueryInput = $("#search_query_top");
 
     public SearchResultsPage performSearch(String searchText){
-        String SEARCH_BAR_TOP = "#search_query_top";
-        $(SEARCH_BAR_TOP).val(searchText).submit();
+        searchQueryInput.val(searchText).submit();
         return Selenide.page(SearchResultsPage.class);
     }
 }

@@ -1,5 +1,7 @@
 package demo.ui.pageobjects;
 
+import com.codeborne.selenide.SelenideElement;
+
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
@@ -7,40 +9,45 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ContactUsPage {
     //TODO move locators to hierarchical json or yaml file
+    SelenideElement subjectInput = $("#id_contact");
+    SelenideElement emailInput = $("#email");
+    SelenideElement orderReferenceLabel = $("#id_order");
+    SelenideElement fileUploadInput = $("#fileUpload");
+    SelenideElement messageBodyInput = $("#message");
+    SelenideElement sendButton = $("#submitMessage");
+    SelenideElement successMessageLabel = $(".alert.alert-success");
 
     public ContactUsPage selectSubjectHeading(String value) {
-        String SUBJECT_HEADING = "#id_contact";
-        $(SUBJECT_HEADING).selectOptionByValue(value);
+
+        subjectInput.selectOptionByValue(value);
         return this;
     }
 
     public ContactUsPage enterEmail(String value) {
-        String SENDER_EMAIL = "#email";
-        $(SENDER_EMAIL).val(value);
+
+        emailInput.val(value);
         return this;
     }
 
     public ContactUsPage enterOrderReference(String value) {
-        String ORDER_REF = "#id_order";
-        $(ORDER_REF).val(value);
+
+        orderReferenceLabel.val(value);
         return this;
     }
 
     public ContactUsPage uploadFile(File file) {
-        String FILE_UPLOAD_INPUT = "#fileUpload";
-        $(FILE_UPLOAD_INPUT).uploadFile(file);
+
+        fileUploadInput.uploadFile(file);
         return this;
     }
 
     public ContactUsPage enterMessage(String value) {
-        String MESSAGE_BODY = "#message";
-        $(MESSAGE_BODY).val(value);
+        messageBodyInput.val(value);
         return this;
     }
 
     public void submitForm() {
-        String SEND_BUTTON = "#submitMessage";
-        $(SEND_BUTTON).click();
+        sendButton.click();
     }
 
     public ContactUsPage contactSeller(){
@@ -56,8 +63,7 @@ public class ContactUsPage {
     }
 
     public void verifySuccessMessageIsPresent(){
-        String SUCCESS_MESSAGE = ".alert.alert-success";
         String SUCCESS_MESSAGE_TEXT = "Your message has been successfully sent to our team.";
-        $(SUCCESS_MESSAGE).should(text(SUCCESS_MESSAGE_TEXT));
+        successMessageLabel.should(text(SUCCESS_MESSAGE_TEXT));
     }
 }
