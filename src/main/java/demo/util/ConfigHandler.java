@@ -7,8 +7,16 @@ import java.util.Optional;
 import java.util.Properties;
 
 public class ConfigHandler {
+    private static ConfigHandler INSTANCE;
     private final Properties properties = new Properties();
     private final String configFilePath = "src/test/resources/demo/config.properties";
+
+    private ConfigHandler(){}
+
+    public static ConfigHandler getInstance() {
+        if(INSTANCE == null) INSTANCE = new ConfigHandler();
+        return INSTANCE;
+    }
 
     public String getProperty(String propertyKey){
         try (FileInputStream fileInStream = new FileInputStream(configFilePath)){

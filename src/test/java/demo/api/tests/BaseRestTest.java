@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import demo.util.ConfigHandler;
 
 public class BaseRestTest {
-    public static ConfigHandler configHandler = new ConfigHandler();
+    public static ConfigHandler configHandler = ConfigHandler.getInstance();
     public static RequestSpecification requestSpec;
     public static ResponseSpecification responseSpec;
 
