@@ -11,8 +11,9 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <maven.surefire-plugin.version>3.0.0-M4</maven.surefire-plugin.version>
+        <maven.surefire-plugin.version>3.0.0-M5</maven.surefire-plugin.version>
         <maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
+        <maven.resources-plugin.version>3.2.0</maven.resources-plugin.version>
         <selenide.version>6.3.4</selenide.version>
         <selenide-junit4.version>6.3.4</selenide-junit4.version>
         <rest-assured.version>4.5.1</rest-assured.version>
@@ -89,9 +90,48 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven.resources-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-allure-reports-history</id>
+                        <phase>pre-clean</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/allure-results/history</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/target/allure-report/history</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${maven-clean-plugin.version}</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${project.basedir}/build</directory>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+<!--                        <fileset>-->
+<!--                            <directory>${project.basedir}/allure-results</directory>-->
+<!--                            <followSymlinks>false</followSymlinks>-->
+<!--                        </fileset>-->
+                    </filesets>
+                </configuration>
+            </plugin>
+
+<!--            suppress MavenModelInspection -->
+            <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire-plugin.version}</version>
+                <version>3.0.0-M5</version>
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
@@ -112,6 +152,8 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <!--            suppress MavenModelInspection -->
+
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
@@ -119,8 +161,8 @@
                 <configuration>
                     <reportVersion>${allure-maven.report-version}</reportVersion>
                     <installDirectory>${project.basedir}/lib</installDirectory>
-                    <resultsDirectory>${project.basedir}/reports/allure-results</resultsDirectory>
-                    <reportDirectory>${project.basedir}/reports/allure-report</reportDirectory>
+                    <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
+                    <reportDirectory>${project.basedir}/target/allure-report</reportDirectory>
                 </configuration>
                 <executions>
                     <execution>
@@ -128,11 +170,12 @@
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>
-                            <goal>serve</goal>
+<!--                            <goal>serve</goal>-->
                         </goals>
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 

@@ -12,7 +12,7 @@ import demo.util.ConfigHandler;
 import java.util.logging.Level;
 
 public class BaseUITest {
-    static ConfigHandler config = new ConfigHandler();
+    static ConfigHandler config = ConfigHandler.getInstance();
     @Rule
     public ScreenShooter makeScreenshotonFailedTests = ScreenShooter.failedTests().succeededTests();
 
