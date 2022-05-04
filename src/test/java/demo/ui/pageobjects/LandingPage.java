@@ -7,7 +7,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LandingPage {
-    SelenideElement searchQueryInput = $("#search_query_top");
+    private final SelenideElement searchQueryInput = $("#search_query_top");
 
     public SearchResultsPage performSearch(String searchText){
         searchQueryInput.val(searchText).submit();

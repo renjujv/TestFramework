@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class SearchResultsPage {
-    ElementsCollection searchResultProductsContainer = $$(".product_list > li > .product-container");
-    ElementsCollection searchResultProductNames = $$("div.product-container a.product-name");
-    By searchResultFirstProductTitle = By.cssSelector("div.product-container > div.right-block > h5 > a");
+    private final ElementsCollection searchResultProductsContainer = $$(".product_list > li > .product-container");
+    private final ElementsCollection searchResultProductNames = $$("div.product-container a.product-name");
+    private final By searchResultFirstProductTitle = By.cssSelector("div.product-container > div.right-block > h5 > a");
 
     public ElementsCollection getResults(){
         return searchResultProductsContainer;

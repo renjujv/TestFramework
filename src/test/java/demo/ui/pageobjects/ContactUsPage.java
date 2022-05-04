@@ -9,13 +9,13 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ContactUsPage {
     //TODO move locators to hierarchical json or yaml file
-    SelenideElement subjectInput = $("#id_contact");
-    SelenideElement emailInput = $("#email");
-    SelenideElement orderReferenceLabel = $("#id_order");
-    SelenideElement fileUploadInput = $("#fileUpload");
-    SelenideElement messageBodyInput = $("#message");
-    SelenideElement sendButton = $("#submitMessage");
-    SelenideElement successMessageLabel = $(".alert.alert-success");
+    private final SelenideElement subjectInput = $("#id_contact");
+    private final SelenideElement emailInput = $("#email");
+    private final SelenideElement orderReferenceLabel = $("#id_order");
+    private final SelenideElement fileUploadInput = $("#fileUpload");
+    private final SelenideElement messageBodyInput = $("#message");
+    private final SelenideElement sendButton = $("#submitMessage");
+    private final SelenideElement successMessageLabel = $(".alert.alert-success");
 
     public ContactUsPage selectSubjectHeading(String value) {
 
