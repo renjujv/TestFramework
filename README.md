@@ -23,7 +23,7 @@ It also includes some demo test cases for automating sample test cases in `Autom
 ## Reporting
 Allure results are generated in the root directory under allure-results after test run. To open the allure results, you can use the `mvn allure:serve` maven goal from command line.
 
-You can also uncomment the `serve` goal in the pom.xml under `build/plugins/plugin/executions/execution/goals` ![here](https://github.com/renjujv/TestFramework/blob/12b0fdd40162fedb3e6476d09cfef1771650f92f/pom.xml#L131) to open the allure report after the test run in your default browser automatically.
+You can also uncomment the `serve` goal in the pom.xml under `build/plugins/plugin/executions/execution/goals` to activate auto-serve and open the allure report after the test run in your default browser automatically.
 
 ## Project Structure
 - reports - contains allure results and screenshots
