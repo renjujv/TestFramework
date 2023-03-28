@@ -2,53 +2,25 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test enabled="false" verbose="0" preserve-order="true" name="All Tests">
-        <classes>
-            <class name="demo.api.tests.GoRESTAPITests">
-                <methods>
-<!--                    <exclude name="test001_getAllUsers"/>-->
-<!--                    <exclude name="test002_createUser"/>-->
-<!--                    <exclude name="test003_updateUser"/>-->
-<!--                    <exclude name="test004_deleteUser"/>-->
-                </methods>
-            </class>
-            <class name="demo.ui.tests.EcomWebsiteTests">
-                <methods>
-<!--                    <exclude name="test001_searchProductAndVerifyResultText"/>-->
-<!--                    <exclude name="test002_searchProductAndVerifyResults"/>-->
-<!--                    <exclude name="test003_addtoCartAndVerifyAddition"/>-->
-<!--                    <exclude name="test004_contactSellerAndVerifySuccessMessagePresent"/>-->
-                </methods>
-            </class>
-        </classes>
+        <packages>
+            <package name="demo.api.tests.GoRESTAPITests"/>
+            <package name="tests.MTTest"/>
+        </packages>
     </test>
     <test enabled="false" verbose="0" preserve-order="true" name="UI Tests">
-        <classes>
-            <class name="demo.ui.tests.EcomWebsiteTests"></class>
-        </classes>
+        <packages>
+            <package name="tests.MTTest"/>
+        </packages>
     </test>
     <test enabled="false" verbose="0" preserve-order="true" name="API Tests">
-        <classes>
-            <class name="demo.api.tests.GoRESTAPITests"></class>
-        </classes>
+        <packages>
+            <package name="demo.api.tests.GoRESTAPITests"/>
+        </packages>
     </test>
     <test enabled="true" verbose="0" preserve-order="true" name="Selected Tests">
-        <classes>
-            <class name="demo.api.tests.GoRESTAPITests">
-                <methods>
-                    <include name="test001_getAllUsers"/>
-                    <include name="test002_createUser"/>
-                    <include name="test003_updateUser"/>
-                    <include name="test004_deleteUser"/>
-                </methods>
-            </class>
-            <class name="demo.ui.tests.EcomWebsiteTests">
-                <methods>
-                    <include name="test001_searchProductAndVerifyResultText"/>
-<!--                    <include name="test002_searchProductAndVerifyResults"/>-->
-<!--                    <include name="test003_addtoCartAndVerifyAddition"/>-->
-                    <include name="test004_contactSellerAndVerifySuccessMessagePresent"/>
-                </methods>
-            </class>
-        </classes>
+        <packages>
+            <package name="demo.api.tests.GoRESTAPITests"/>
+            <package name="tests.MTTest"/>
+        </packages>
     </test>
 </suite>

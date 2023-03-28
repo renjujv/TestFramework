@@ -2,6 +2,12 @@
 target
 logs
 
+#gradle
+.gradle
+gradle
+gradlew
+gradlew.bat
+
 #selenide webdrivermanager driver temp files
 build
 
