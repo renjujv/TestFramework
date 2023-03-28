@@ -14,7 +14,7 @@
         <maven.surefire-plugin.version>3.0.0-M5</maven.surefire-plugin.version>
         <maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
         <maven.resources-plugin.version>3.2.0</maven.resources-plugin.version>
-        <selenide.version>6.3.4</selenide.version>
+        <selenide.version>6.12.4</selenide.version>
         <rest-assured.version>4.5.1</rest-assured.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-maven.report.version>2.14.0</allure-maven.report.version>
@@ -163,7 +163,7 @@
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>
-<!--                            <goal>serve</goal>-->
+                            <goal>serve</goal>
                         </goals>
                     </execution>
                 </executions>
